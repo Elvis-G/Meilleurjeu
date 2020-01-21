@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <windows.h>
 #include <time.h>
 
@@ -23,6 +24,7 @@ void SetColor(int ForgC) {
 typedef struct Monstre Monstre_t;
 struct Monstre
 {
+    int level;
     int pointdevie;
     int attaque;
     int defense;
@@ -50,6 +52,18 @@ struct Allies
     int defense;
     int mp;
     int esquive;
+
+    // Alchimiste , Necromancien, Paladin, Assassin
+};
+
+typedef struct Capacites Capacites_t;
+struct Capacites
+{
+    int degats;
+    int coutMP;
+    int cooldown;
+    int tauxReussite;
+    int tauxCritique;
 };
 
 int main (){
@@ -59,8 +73,10 @@ int experience = 0;
 int skillpoints = 50;
 int coffre = 0;
 
+int progression = 1;
+
 int avancer = 0;
-char* tableauMob[4];
+char tableauMob[4];
 
 while (jeu == 0) {
 printf("%s\n\n", "");
@@ -76,12 +92,12 @@ Sleep(4000);
 SetColor(3);
 LeHeros_t heros ={1, 250, 0, 0, 0, 0};
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< VOUS >>>>>>>>>>>>>>>>> ");
-printf("%s%d\n", "Level : ", heros.level);
+printf("%s%d\n", "LEVEL : ", heros.level);
 printf("%s%d\n", "Point de vie : ", heros.pointdevie);
 printf("%s%d\n", "Attaque : ", heros.attaque);
 printf("%s%d\n", "Defense : ", heros.defense);
 printf("%s%d\n", "MP : ", heros.mp);
-printf("%s%d\n\n", "Esquive : ", heros.esquive);
+printf("%s%d\n", "Esquive : ", heros.esquive);
 SetColor(15);
 
 printf("\n%s\n", "Comme vous pouvez le constatez, vos stats se trouvent toutes a 0");
@@ -138,7 +154,7 @@ printf("\n\n%s\n\n", "VOICI LA FICHE DE VOTRE PERSONNAGE ");
 
 SetColor(3);
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< VOUS >>>>>>>>>>>>>>>>> ");
-printf("%s", "Level : ");
+printf("%s", "LEVEL : ");
 printf("%d\n", heros.level);
 printf("%s", "Point de vie : ");
 printf("%d\n", heros.pointdevie);
@@ -164,7 +180,7 @@ Sleep(2000);
 SetColor(4);
 Allies_t georges ={1, 150, 10, 5, 25, 10};
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< GEORGES >>>>>>>>>>>>>>>>> ");
-printf("%s", "Level : ");
+printf("%s", "LEVEL : ");
 printf("%d\n", georges.level);
 printf("%s", "Point de vie : ");
 printf("%d\n", georges.pointdevie);
@@ -183,7 +199,7 @@ Sleep(1000);
 SetColor(14);
 Allies_t david ={1, 400, 5, 30, 10, 5};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DAVID >>>>>>>>>>>>>>>>> ");
-printf("%s", "Level : ");
+printf("%s", "LEVEL : ");
 printf("%d\n", david.level);
 printf("%s", "Point de vie : ");
 printf("%d\n", david.pointdevie);
@@ -202,7 +218,7 @@ Sleep(1000);
 SetColor(2);
 Allies_t bernard ={1, 180, 25, 5, 5, 10};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< BERNARD >>>>>>>>>>>>>>>>> ");
-printf("%s", "Level : ");
+printf("%s", "LEVEL : ");
 printf("%d\n", bernard.level);
 printf("%s", "Point de vie : ");
 printf("%d\n", bernard.pointdevie);
@@ -221,7 +237,7 @@ Sleep(1000);
 SetColor(5);
 Allies_t daniel ={1, 300, 15, 15, 10, 10};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DANIEL >>>>>>>>>>>>>>>>> ");
-printf("%s", "Level : ");
+printf("%s", "LEVEL : ");
 printf("%d\n", georges.level);
 printf("%s", "Point de vie : ");
 printf("%d\n", georges.pointdevie);
@@ -251,24 +267,12 @@ printf("%s\n", "                           |____________________________________
 
 }
 
-tableauMob[0] = "bonjour";
-tableauMob[1] = "Bonsoir";
-tableauMob[2] = "Au revoir";
-tableauMob[3] = "Adieu";
-tableauMob[4] = "...";
-printf("%s %s %s %s %s", tableauMob[0], tableauMob[1], tableauMob[2], tableauMob[3], tableauMob[4]);
-
-
-
-Sleep(2000);
-system("cls");
-
-}
-return 0;
 
 SetColor(8);
-Monstre_t slime ={20, 5, 10, 0, 5};
+Monstre_t slime ={1*progression, 20*slime.level, 5*slime.level, 10*slime.level, 0*slime.level, 5*slime.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< SLIME >>>>>>>>>>>>>>>>> ");
+printf("%s", "LEVEL : ");
+printf("%d\n", slime.level);
 printf("%s", "Point de vie : ");
 printf("%d\n", slime.pointdevie);
 printf("%s", "Attaque : ");
@@ -280,5 +284,13 @@ printf("%d\n", slime.mp);
 printf("%s", "Esquive : ");
 printf("%d\n", slime.esquive);
 SetColor(15);
+
+Sleep(2000);
+system("cls");
+
+return 0;
+
+
+}
 
 }
