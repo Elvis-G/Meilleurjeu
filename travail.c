@@ -35,6 +35,7 @@ struct Monstre
 typedef struct LeHeros LeHeros_t;
 struct LeHeros
 {
+    char* nom;
     int level;
     int pointdevie;
     int attaque;
@@ -76,7 +77,6 @@ int coffre = 0;
 int progression = 1;
 
 int avancer = 0;
-char tableauMob[4];
 
 while (jeu == 0) {
 printf("%s\n\n", "");
@@ -90,9 +90,10 @@ printf("%s\n", "                           |____________________________________
 Sleep(4000);
 
 SetColor(3);
-LeHeros_t heros ={1, 250, 0, 0, 0, 0};
+LeHeros_t heros = {"Inconnu", 1, 250, 0, 0, 0, 0};
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< VOUS >>>>>>>>>>>>>>>>> ");
 printf("%s%d\n", "LEVEL : ", heros.level);
+printf("%s%d\n", "Classe : ", heros.nom);
 printf("%s%d\n", "Point de vie : ", heros.pointdevie);
 printf("%s%d\n", "Attaque : ", heros.attaque);
 printf("%s%d\n", "Defense : ", heros.defense);
