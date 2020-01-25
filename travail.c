@@ -73,10 +73,10 @@ int experience = 0;
 int skillpoints = 50;
 int coffre = 0;
 
-int progression = 1;
+int progressionSlime = 1;
+int expSlime = 1;
 
 int avancer = 0;
-char tableauMob[4];
 
 while (jeu == 0) {
 printf("%s\n\n", "");
@@ -90,7 +90,7 @@ printf("%s\n", "                           |____________________________________
 Sleep(4000);
 
 SetColor(3);
-LeHeros_t heros ={1, 250, 0, 0, 0, 0};
+LeHeros_t heros = {1, 250, 0, 0, 0, 0};
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< VOUS >>>>>>>>>>>>>>>>> ");
 printf("%s%d\n", "LEVEL : ", heros.level);
 printf("%s%d\n", "Point de vie : ", heros.pointdevie);
@@ -267,9 +267,52 @@ printf("%s\n", "                           |____________________________________
 
 }
 
+SetColor(3);
+printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< VOUS >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Coup d'épée [2]");
+printf("%s\n", "Repos [3]");
+SetColor(15);
+
+Sleep(1000);
+
+SetColor(4);
+printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< GEORGES >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Tonerre [2]");
+printf("%s\n", "Soin [3]");
+SetColor(15);
+
+Sleep(1000);
+
+SetColor(14);
+printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DAVID >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Tonerre [2]");
+printf("%s\n", "Renforcement [3]");
+SetColor(15);
+
+Sleep(1000);
+
+SetColor(2);
+printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< BERNARD >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Tonerre [2]");
+printf("%s\n", "Renforcement [3]");
+SetColor(15);
+
+Sleep(1000);
+
+SetColor(5);
+printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DANIEL >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Tonerre [2]");
+printf("%s\n", "Renforcement [3]");
+SetColor(15);
+
 
 SetColor(8);
-Monstre_t slime ={1*progression, 20*slime.level, 5*slime.level, 10*slime.level, 0*slime.level, 5*slime.level};
+Monstre_t slime ={1*progressionSlime, 20*slime.level, 5*slime.level, 10*slime.level, 1*slime.level, 5*slime.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< SLIME >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", slime.level);
@@ -283,6 +326,8 @@ printf("%s", "MP : ");
 printf("%d\n", slime.mp);
 printf("%s", "Esquive : ");
 printf("%d\n", slime.esquive);
+expSlime = 5*progressionSlime;
+experience = experience + expSlime;
 SetColor(15);
 
 Sleep(2000);
