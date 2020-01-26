@@ -598,12 +598,7 @@ daniel.mp = daniel.mp + heros.magie/5;
 
 }
 
-return 0;
-}
-
-
 // Gobelin Base Stats //
-
 SetColor(4);
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< GOBELIN >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
@@ -732,12 +727,5 @@ bernard.pointdevie = bernard.pointdevie * 1.1;
 
 SetColor(15);
 
-Sleep(2000);
-system("cls");
-
 return 0;
-
-
-}
-
 }
