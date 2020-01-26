@@ -478,7 +478,7 @@ system("cls");
 
 return 0;
 
-
+SetColor (15);
 }
 
 }
