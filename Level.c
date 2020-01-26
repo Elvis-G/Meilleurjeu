@@ -363,10 +363,10 @@ printf("%d\n", gobelin.mp);
 printf("%s", "Esquive : ");
 printf("%d\n", gobelin.esquive);
 
-// Orque Base Stats //
+// Orgue Base Stats //
 
 SetColor(1);
-Monstre_t orque ={1, 300*orque.level, 15*orque.level, 25*orque.level, 15*orque.level, 15*orque.level};
+Monstre_t orque ={1, 300*orque.level, 15*orque.level, 25*orque.level, 15*orque.level, 1*orque.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< ORQUE >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", orque.level);
@@ -384,7 +384,7 @@ printf("%d\n", orque.esquive);
 // Pheonix Base Stats //
 
 SetColor(11);
-Monstre_t pheonix ={1, 400*pheonix.level, 25*pheonix.level, 35*pheonix.level, 25*pheonix.level, 25*pheonix.level};
+Monstre_t pheonix ={1, 400*pheonix.level, 25*pheonix.level, 35*pheonix.level, 25*pheonix.level, 15*pheonix.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< PHEONIX >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", pheonix.level);
@@ -402,7 +402,7 @@ printf("%d\n", pheonix.esquive);
 // Dragon Base Stats //
 
 SetColor(10);
-Monstre_t dragon ={1, 500*dragon.level, 50*dragon.level, 50*dragon.level, 50*dragon.level, 50*dragon.level};
+Monstre_t dragon ={1, 500*dragon.level, 50*dragon.level, 50*dragon.level, 50*dragon.level, 10*dragon.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DRAGON >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", dragon.level);
@@ -430,6 +430,7 @@ if (slime.pointdevie <= 0)
 };
 
 // Monter de Level //
+
 if (heros.exp >= heros.exp + 5 && georges.exp >= georges.exp + 5 && daniel.exp >= daniel.exp + 5 && bernard.exp >= bernard.exp + 5 && david.exp >= david.exp + 5)
 {
   heros.level = heros.level + 1;
@@ -446,26 +447,31 @@ if (slime.level = slime.level + 1)
 {
   slime.pointdevie = slime.pointdevie * 1.1;
 };
+
 // Monter des PV Heros si Level up//
 
 if (heros.level = heros.level + 1)
 {
 heros.pointdevie = heros.pointdevie * 1.1;
 };
+
 // Monter des PV Allies si Level up//
 
 if (georges.level = georges.level + 1)
 {
 georges.pointdevie = georges.pointdevie * 1.1;
 };
+
 if (david.level = david.level + 1)
 {
 david.pointdevie = david.pointdevie * 1.1;
 };
+
 if (daniel.level = daniel.level + 1)
 {
 daniel.pointdevie = daniel.pointdevie * 1.1;
 };
+
 if (bernard.level = bernard.level + 1)
 {
 bernard.pointdevie = bernard.pointdevie * 1.1;
