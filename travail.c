@@ -665,67 +665,6 @@ printf("%d\n", dragon.mp);
 printf("%s", "Esquive : ");
 printf("%d\n", dragon.esquive);
 
-// Gain d'expérience//
-
-if (slime.pointdevie <= 0)
-{
-  heros.exp = heros.exp + 1;
-  georges.exp = heros.exp + 1;
-  david.exp = heros.exp + 1;
-  bernard.exp = heros.exp + 1;
-  daniel.exp = heros.exp + 1;
-
-};
-
-// Monter de Level //
-
-if (heros.exp >= heros.exp + 5 && georges.exp >= georges.exp + 5 && daniel.exp >= daniel.exp + 5 && bernard.exp >= bernard.exp + 5 && david.exp >= david.exp + 5)
-{
-  heros.level = heros.level + 1;
-  georges.level = georges.level + 1;
-  david.level = david.level + 1;
-  bernard.level = bernard.level + 1;
-  daniel.level = daniel.level + 1;
-  slime.level = slime.level + 1;
-};
-
-// Monter des PV Slime si Level up//
-
-if (slime.level = slime.level + 1)
-{
-  slime.pointdevie = slime.pointdevie * 1.1;
-};
-
-// Monter des PV Heros si Level up//
-
-if (heros.level = heros.level + 1)
-{
-heros.pointdevie = heros.pointdevie * 1.1;
-};
-
-// Monter des PV Allies si Level up//
-
-if (georges.level = georges.level + 1)
-{
-georges.pointdevie = georges.pointdevie * 1.1;
-};
-
-if (david.level = david.level + 1)
-{
-david.pointdevie = david.pointdevie * 1.1;
-};
-
-if (daniel.level = daniel.level + 1)
-{
-daniel.pointdevie = daniel.pointdevie * 1.1;
-};
-
-if (bernard.level = bernard.level + 1)
-{
-bernard.pointdevie = bernard.pointdevie * 1.1;
-};
-
-SetColor(15);
-
 return 0;
+
 }
