@@ -354,8 +354,8 @@ Sleep(2000);
 
 SetColor(5);
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< DANIEL >>>>>>>>>>>>>>>>> ");
-printf("%s\n", "Tranchant [1]" "        | Cette attaque n'utilise pas de MP et ses dégats seront bases en fonction de l'attaque de Daniel");
-printf("%s\n", "Blizzard [2]" "         | Cette attaque utilise des MP et ses dégats seront bases en fonction de la magie de Daniel");
+printf("%s\n", "Tranchant [1]" "        | Cette attaque n'utilise pas de MP et ses degats seront bases en fonction de l'attaque de Daniel");
+printf("%s\n", "Blizzard [2]" "         | Cette attaque utilise des MP et ses degats seront bases en fonction de la magie de Daniel");
 printf("%s\n", "Transcende [3]" "       | Cette attaque n'utilise pas de MP et permet d'augmenter l'esquive de Daniel, son taux de reussite est de 75%");
 SetColor(15);
 
@@ -421,8 +421,9 @@ printf("%s\n", "Coup d'epee [1]" " ; Boule de Feu [2]" " ; Repos [3]");
 scanf("%d", &coffre);
 if (coffre == 1) {
 slime.pointdevie = slime.pointdevie - (coupEpee.degats - (slime.defense/2));
-} else if (coffre == 2) {
+} else if (coffre == 2 && heros.mp > 5) {
 slime.pointdevie = slime.pointdevie - bouleDeFeu.degats;
+heros.mp = heros.mp - 5;
 } else if (coffre == 3) {
 repos.cooldown = 4;
 } else if (coffre > 3) {
@@ -436,9 +437,6 @@ if (repos.cooldown > 0){
 repos.cooldown = repos.cooldown -1;
 }
 
-printf("\n%s", "point de vie Slime : ");
-printf("%d\n", slime.pointdevie);
-
 
 if (georges.pointdevie > 0 && slime.pointdevie > 0){
 Sleep(2000);
@@ -450,9 +448,11 @@ printf("%s\n", "Coup de Baguette [1]" " ; Foudre [2]" " ; Soin [3]");
 scanf("%d", &coffre);
 if (coffre == 1) {
 slime.pointdevie = slime.pointdevie - (coupBaguette.degats - slime.defense);
-} else if (coffre == 2) {
+} else if (coffre == 2 && georges.mp > 5) {
 slime.pointdevie = slime.pointdevie - foudre.degats;
-} else if (coffre == 3) {
+georges.mp = georges.mp - 5;
+} else if (coffre == 3 && georges.mp > 10) {
+georges.mp = georges.mp - 10;
 printf("\n%s\n", "Choissisez qui vous voulez soigner");
 printf("%s\n", "Vous [1]" " ; Georges [2]" " ; David [3]" " ; Bernard [4]" " ; Daniel [5]");
 scanf("%d", &coffre);
@@ -491,7 +491,8 @@ printf("%s\n", "Coup de Bouclier [1]" " ; Coup Fatal [2]" " ; Renforcement [3]")
 scanf("%d", &coffre);
 if (coffre == 1) {
 slime.pointdevie = slime.pointdevie - (coupBouclier.degats - (slime.defense/2));
-} else if (coffre == 2) {
+} else if (coffre == 2 && david.mp > 3) {
+david.mp = david.mp - 3;
 coffre = (rand() % (100 - 1 + 1)) + 1;
   if (coffre <= coupFatal.tauxReussite){
     printf("%s\n", "vous avez reussi votre coup fatal, le monstre est sonner");
@@ -527,13 +528,6 @@ printf("%s\n", "Vous avez rater votre attaque");
 SetColor(15);
 }
 
-printf("\n%s", "point de vie Slime : ");
-printf("%d\n", slime.pointdevie);
-printf("\n%s", "Votre defense : ");
-printf("%d\n", heros.defense);
-printf("\n%s", "point de vie : ");
-printf("%d\n", heros.pointdevie);
-
 Sleep(2000);
 
 SetColor(2);
@@ -564,8 +558,12 @@ if (heros.pointdevie > heros.pointdeviemax){
   daniel.pointdevie = daniel.pointdeviemax;
 }
 
-printf("\n%s", "point de vie : ");
-printf("%d\n", heros.pointdevie);
+heros.mp = heros.mp + heros.magie/5;
+georges.mp = georges.mp + heros.magie/5;
+david.mp = david.mp + heros.magie/5;
+bernard.mp = bernard.mp + heros.magie/5;
+daniel.mp = daniel.mp + heros.magie/5;
+
 }
 
 return 0;
