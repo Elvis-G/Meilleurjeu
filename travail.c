@@ -387,6 +387,50 @@ printf("%s\n", "                           |                             SLIME  
 printf("%s\n", "                           |_____________________________________________________________|");
 
 SetColor(8);
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Coup d'épée [2]");
+printf("%s\n", "Repos [3]");
+SetColor(15);
+
+Sleep(1000);
+
+SetColor(4);
+printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< GEORGES >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Tonerre [2]");
+printf("%s\n", "Repos [3]");
+SetColor(15);
+
+Sleep(1000);
+
+SetColor(14);
+printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DAVID >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Tonerre [2]");
+printf("%s\n", "Renforcement [3]");
+SetColor(15);
+
+Sleep(1000);
+
+SetColor(2);
+printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< BERNARD >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Tonerre [2]");
+printf("%s\n", "Renforcement [3]");
+SetColor(15);
+
+Sleep(1000);
+
+SetColor(5);
+printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DANIEL >>>>>>>>>>>>>>>>> ");
+printf("%s\n", "Boule de Feu [1]");
+printf("%s\n", "Tonerre [2]");
+printf("%s\n", "Renforcement [3]");
+SetColor(15);
+
+
+SetColor(8);
+Monstre_t slime ={1*progressionSlime, 20*slime.level, 5*slime.level, 10*slime.level, 1*slime.level, 5*slime.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< SLIME >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", slime.level);
@@ -431,6 +475,10 @@ repos.cooldown = 4;
 } else if (coffre > 3) {
 printf("%s\n", "Vous avez rater votre attaque");
 }
+=======
+printf("%d\n", slime.esquive);
+expSlime = 5*progressionSlime;
+experience = experience + expSlime;
 SetColor(15);
 }
 
