@@ -98,6 +98,7 @@ printf("%s\n", "                           |____________________________________
 
 Sleep(4000);
 
+// fiche du héros, de vous avant attribution des skillpoints
 SetColor(3);
 LeHeros_t heros = {1, 250, 250, 0, 0, 0, 0, 0};
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< VOUS >>>>>>>>>>>>>>>>> ");
@@ -110,6 +111,7 @@ printf("%s%d\n", "MP : ", heros.mp);
 printf("%s%d\n", "Esquive : ", heros.esquive);
 SetColor(15);
 
+// attributions des skillpoints ; seulement pour votre personnage
 printf("\n%s\n", "Comme vous pouvez le constatez, vos stats se trouvent toutes a 0");
 printf("%s\n", "Vous allez donc devoir attribuer au total 60 points de competences, choissisez intelligement, il n'est pas possible de revenir en arriere");
 printf("%s", "Attaque : ");
@@ -172,6 +174,7 @@ while (skillpoints < 0){
 }
 printf("\n%s%d", "Points de competences restant : ", skillpoints);
 
+// fiche du personnage après attribution des skills points
 printf("\n\n%s\n\n", "VOICI LA FICHE DE VOTRE PERSONNAGE ");
 
 SetColor(3);
@@ -201,6 +204,7 @@ printf("%s\n", "                           |____________________________________
 
 Sleep(2000);
 
+// détails des personnages ; fiche des personnages
 SetColor(4);
 Allies_t georges ={1, 150, 150, 10, 5, 20, 20, 5};
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< GEORGES >>>>>>>>>>>>>>>>> ");
@@ -299,7 +303,7 @@ printf("%s\n", "                           |     VOICI LES CAPACITES DETAILLES D
 printf("%s\n", "                           |_____________________________________________________________|");
 
 }
-
+// définis/explique les capacités des personnages
 SetColor(3);
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< VOUS >>>>>>>>>>>>>>>>> ");
 printf("%s\n", "Coup d'epee [1]" "      | Cette attaque n'utilise pas de MP et ses degats seront bases en fonction de l'attaque de votre Personnage");
@@ -374,9 +378,19 @@ scanf("%d", &avancer);
 Sleep(2000);
 system("cls");
 
+// génère les données concernant les monstres à vaincre au préalable
 Monstre_t slime ={1, 150*slime.level, 150*slime.level, 5*slime.level, 10*slime.level, 5*slime.level, 5*slime.level, 5*slime.level};
+Monstre_t gobelin ={1, 500*gobelin.level, 500*gobelin.level, 10*gobelin.level, 20*gobelin.level, 10*gobelin.level, 10*gobelin.level};
+Monstre_t orque ={1, 1200*orque.level, 1200*orque.level, 15*orque.level, 25*orque.level, 15*orque.level, 1*orque.level};
+Monstre_t pheonix ={1, 3000*pheonix.level, 3000*pheonix.level, 25*pheonix.level, 35*pheonix.level, 25*pheonix.level, 15*pheonix.level};
+Monstre_t dragon ={1, 7000*dragon.level, 7000*dragon.level, 50*dragon.level, 50*dragon.level, 50*dragon.level, 10*dragon.level};
+
+
+// DÉBUTS DES COMBATS
+// DÉBUTS DES COMBATS
 
 while (jeu == 0) {
+  // Infos concernant la créature que vous affrontez
 printf("\n%s\n", "                            _____________________________________________________________ ");
 printf("%s\n", "                           |                                                             |");
 printf("%s\n", "                           |                             SLIME                           |");
@@ -405,6 +419,8 @@ Sleep(1000);
 
 printf("\n\n%s\n\n", "********************* QUE LE COMBAT COMMENCE ********************* ");
 
+
+// Lorsque votre héros est sous cooldown après avoir utilisé la capacité [Repos]
 SetColor(3);
 if (repos.cooldown == 2){
 printf("%s\n", "Vous devez attendre 2 tours avant de pouvoir jouer");
@@ -413,6 +429,9 @@ printf("%s\n", "Vous devez attendre 1 tours avant de pouvoir jouer");
 }
 SetColor(15);
 
+
+// ATTAQUE DE VOTRE HEROS
+// ATTAQUE DE VOTRE HEROS
 if (heros.pointdevie > 0 && slime.pointdevie > 0 && repos.cooldown == 0){
 SetColor(3);
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< VOUS >>>>>>>>>>>>>>>>> ");
@@ -438,6 +457,8 @@ repos.cooldown = repos.cooldown -1;
 }
 
 
+// ATTAQUE DE GEORGES
+// ATTAQUE DE GEORGES
 if (georges.pointdevie > 0 && slime.pointdevie > 0){
 Sleep(2000);
 
@@ -481,6 +502,9 @@ printf("%s\n", "Vous avez rater votre attaque");
 SetColor(15);
 }
 
+
+// ATTAQUE DE DAVID
+// ATTAQUE DE DAVID
 if (david.pointdevie > 0 && slime.pointdevie > 0){
 Sleep(2000);
 
@@ -528,6 +552,9 @@ printf("%s\n", "Vous avez rater votre attaque");
 SetColor(15);
 }
 
+
+// ATTAQUE DE BERNARD
+// ATTAQUE DE BERNARD
 Sleep(2000);
 
 SetColor(2);
@@ -535,6 +562,9 @@ printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< BERNARD >>>>>>>>>>>>>>>>> ");
 printf("%s\n", "Slash [1]" " ; Double Lame [2]" " ; Infection [3]");
 SetColor(15);
 
+
+// ATTAQUE DE DANIEL
+// ATTAQUE DE DANIEL
 Sleep(2000);
 
 SetColor(5);
@@ -558,6 +588,8 @@ if (heros.pointdevie > heros.pointdeviemax){
   daniel.pointdevie = daniel.pointdeviemax;
 }
 
+
+// regénération des MP
 heros.mp = heros.mp + heros.magie/5;
 georges.mp = georges.mp + heros.magie/5;
 david.mp = david.mp + heros.magie/5;
@@ -569,28 +601,10 @@ daniel.mp = daniel.mp + heros.magie/5;
 return 0;
 }
 
-// Slime Base Stats //
-
-SetColor(8);
-Monstre_t slime ={1, 150*slime.level, 5*slime.level, 10*slime.level, 5*slime.level, 5*slime.level};
-printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< SLIME >>>>>>>>>>>>>>>>> ");
-printf("%s", "LEVEL : ");
-printf("%d\n", slime.level);
-printf("%s", "Point de vie : ");
-printf("%d\n", slime.pointdevie);
-printf("%s", "Attaque : ");
-printf("%d\n", slime.attaque);
-printf("%s", "Defense : ");
-printf("%d\n", slime.defense);
-printf("%s", "MP : ");
-printf("%d\n", slime.mp);
-printf("%s", "Esquive : ");
-printf("%d\n", slime.esquive);
 
 // Gobelin Base Stats //
 
 SetColor(4);
-Monstre_t gobelin ={1, 200*gobelin.level, 10*gobelin.level, 20*gobelin.level, 10*gobelin.level, 10*gobelin.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< GOBELIN >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", gobelin.level);
@@ -608,7 +622,6 @@ printf("%d\n", gobelin.esquive);
 // Orgue Base Stats //
 
 SetColor(1);
-Monstre_t orque ={1, 300*orque.level, 15*orque.level, 25*orque.level, 15*orque.level, 1*orque.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< ORQUE >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", orque.level);
@@ -626,7 +639,6 @@ printf("%d\n", orque.esquive);
 // Pheonix Base Stats //
 
 SetColor(11);
-Monstre_t pheonix ={1, 400*pheonix.level, 25*pheonix.level, 35*pheonix.level, 25*pheonix.level, 15*pheonix.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< PHEONIX >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", pheonix.level);
@@ -644,7 +656,6 @@ printf("%d\n", pheonix.esquive);
 // Dragon Base Stats //
 
 SetColor(10);
-Monstre_t dragon ={1, 500*dragon.level, 50*dragon.level, 50*dragon.level, 50*dragon.level, 10*dragon.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DRAGON >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", dragon.level);
