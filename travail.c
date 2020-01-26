@@ -75,7 +75,6 @@ struct Capacites
 int main (){
 
 int jeu = 0;
-int experience = 0;
 int skillpoints = 60;
 
 int coffre = 0;
@@ -85,9 +84,6 @@ int stockageDavid = 0;
 int stockageBernard = 0;
 int stockageDaniel = 0;
 int leHeal = 0;
-
-int progressionSlime = 1;
-int expSlime = 1;
 
 int avancer = 0;
 
@@ -290,7 +286,7 @@ SetColor(15);
 Sleep(1000);
 
 printf("\n%s\n", "Avant de vous presentez leurs capacites, notez sur un papier les stats de vos personnages, cela peut s'averer utile");
-printf("\n%s\n", "Vous etes pret ? Si oui, entrer le numero -1- ");
+printf("\n%s\n", "Vous etes pret ? Si oui, entrer le numero [1] ");
 while (avancer != 1){
 scanf("%d", &avancer);
 }
@@ -320,7 +316,7 @@ Sleep(2000);
 SetColor(4);
 printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< GEORGES >>>>>>>>>>>>>>>>> ");
 printf("%s\n", "Coup de Baguette [1]" " | Cette attaque n'utilise pas de MP et ses degats seront bases en fonction de l'attaque de Georges");
-printf("%s\n", "Foudre [2]" "           | Cette attaque utilise des MP et ses dégats seront bases en fonction de la magie de Georges");
+printf("%s\n", "Foudre [2]" "           | Cette attaque utilise des MP et ses degats seront bases en fonction de la magie de Georges");
 printf("%s\n", "Soin [3]" "             | Cette attaque utilise des MP et permet de faire recuperer des points de vie au joueur cibler");
 SetColor(15);
 
@@ -370,7 +366,7 @@ Capacites_t transcende ={0, 0, 0, 80, 0};
 Sleep(2000);
 
 printf("\n\n%s\n", "De nouveau, notez sur un papier l'utilite des capacites de vos personnages, cela peut s'averer utile");
-printf("\n%s\n", "Vous etes pret a ecrire votre histoire et partir affronter votre premier monstre ? Si oui, entrer le numero -1- ");
+printf("\n%s\n", "Vous etes pret a ecrire votre histoire et partir affronter votre premier monstre ? Si oui, entrer le numero [1] ");
 while (avancer != 1){
 scanf("%d", &avancer);
 }
@@ -386,51 +382,8 @@ printf("%s\n", "                           |                                    
 printf("%s\n", "                           |                             SLIME                           |");
 printf("%s\n", "                           |_____________________________________________________________|");
 
-SetColor(8);
-printf("%s\n", "Boule de Feu [1]");
-printf("%s\n", "Coup d'épée [2]");
-printf("%s\n", "Repos [3]");
-SetColor(15);
-
-Sleep(1000);
-
-SetColor(4);
-printf("\n\n%s\n\n", "<<<<<<<<<<<<<<<<< GEORGES >>>>>>>>>>>>>>>>> ");
-printf("%s\n", "Boule de Feu [1]");
-printf("%s\n", "Tonerre [2]");
-printf("%s\n", "Repos [3]");
-SetColor(15);
-
-Sleep(1000);
-
-SetColor(14);
-printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DAVID >>>>>>>>>>>>>>>>> ");
-printf("%s\n", "Boule de Feu [1]");
-printf("%s\n", "Tonerre [2]");
-printf("%s\n", "Renforcement [3]");
-SetColor(15);
-
-Sleep(1000);
-
-SetColor(2);
-printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< BERNARD >>>>>>>>>>>>>>>>> ");
-printf("%s\n", "Boule de Feu [1]");
-printf("%s\n", "Tonerre [2]");
-printf("%s\n", "Renforcement [3]");
-SetColor(15);
-
-Sleep(1000);
-
-SetColor(5);
-printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< DANIEL >>>>>>>>>>>>>>>>> ");
-printf("%s\n", "Boule de Feu [1]");
-printf("%s\n", "Tonerre [2]");
-printf("%s\n", "Renforcement [3]");
-SetColor(15);
-
 
 SetColor(8);
-Monstre_t slime ={1*progressionSlime, 20*slime.level, 5*slime.level, 10*slime.level, 1*slime.level, 5*slime.level};
 printf("\n%s\n\n", "<<<<<<<<<<<<<<<<< SLIME >>>>>>>>>>>>>>>>> ");
 printf("%s", "LEVEL : ");
 printf("%d\n", slime.level);
@@ -475,10 +428,7 @@ repos.cooldown = 4;
 } else if (coffre > 3) {
 printf("%s\n", "Vous avez rater votre attaque");
 }
-=======
 printf("%d\n", slime.esquive);
-expSlime = 5*progressionSlime;
-experience = experience + expSlime;
 SetColor(15);
 }
 
