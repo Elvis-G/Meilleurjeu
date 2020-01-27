@@ -69,7 +69,7 @@ struct Allies
     int expMax;
     int esquive;
 
-    // Alchimiste , Necromancien, Paladin, Assassin
+
 };
 
 typedef struct Capacites Capacites_t;
